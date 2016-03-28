@@ -3,13 +3,11 @@ FROM r-base:latest
 MAINTAINER Sergii Khomenko "khomenko@brainscode.com"
 
 RUN apt-get update && apt-get install -y \
+    libssl1.0.0 \
     gdebi-core \
-    r-cran-rcpp
-
-# Download and install libssl 0.9.8
-RUN wget --no-verbose http://ftp.us.debian.org/debian/pool/main/o/openssl/libssl0.9.8_0.9.8o-4squeeze14_amd64.deb && \
-    dpkg -i libssl0.9.8_0.9.8o-4squeeze14_amd64.deb && \
-    rm -f libssl0.9.8_0.9.8o-4squeeze14_amd64.deb
+    r-cran-rcpp \
+    && apt-get clean
+    # && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Download and install shiny server
 RUN wget --no-verbose https://s3.amazonaws.com/rstudio-shiny-server-os-build/ubuntu-12.04/x86_64/VERSION -O "version.txt" && \
