@@ -3,7 +3,7 @@ FROM r-base:latest
 MAINTAINER Sergii Khomenko "khomenko@brainscode.com"
 
 RUN apt-get update && apt-get install -y \
-    libssl1.0.2>=1.0.2g-1 \
+    libssl1.0.2 \
     gdebi-core \
     r-cran-rcpp && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
