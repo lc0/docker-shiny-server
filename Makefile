@@ -1,4 +1,4 @@
-DOCKER_REPO=lc0/docker-shiny-server
+DOCKER_REPO=sergii/docker-shiny-server
 TAG=latest
 
 
